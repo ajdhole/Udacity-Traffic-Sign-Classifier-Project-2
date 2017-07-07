@@ -109,7 +109,7 @@ My final model consisted of the following layers:
 | Input                                  | 32x32x1 Grayscale image                                          |
 | Convolution_1 5x5       | 1x1 stride, VALID padding, outputs 28X28X6                |
 | RELU                                  |                                                                                              |
-|Dropout                             |Keep probability = 0.75                         |
+|Dropout                             |Keep probability = 0.7                        |
 | Max pooling                    | 2x2 stride,  outputs 14x14x6                                    |
 | Convolution_2 5x5       | 1x1 stride, VALID padding, outputs 10x10x16   |
 | RELU                                  |                                                                                              |
@@ -136,11 +136,11 @@ To acehive better validation accuracy I worked out on various hyperparameter lik
 Following parameter value gives best result for my network:
 
 * Learning Rate = 0.0009
-* Epoch = 75
-* batch Size = 128
+* Epoch = 70
+* batch Size = 100
 * Dropout at FC 0 layer = 0.6
 * Dropout at FC 2 layer = 0.6
-* Dropout at Conv 1 layer = 0.75
+* Dropout at Conv 1 layer = 0.7
 
 Learning from various experiments: 
 
@@ -153,9 +153,9 @@ Learning from various experiments:
 The code for calculating the accuracy of the model is located in the 21th and 23rd cell of the Ipython notebook.
 
 My final model results were:
-* training set accuracy of ----: 99.8%
-* validation set accuracy of --: 99.4%
-* test set accuracy of---------: 91.7%
+* training set accuracy of ----: 99.9%
+* validation set accuracy of --: 99.6%
+* test set accuracy of---------: 92.3%
 
  ![alt text][image5] 
 
@@ -188,14 +188,15 @@ Here are the results of the prediction:
 
 | Image                                                                |     Prediction                                                    |
 |:---------------------------------------------:|:---------------------------------------------:|
-| Speed Limit(60km/h)                                  | Speed Limit(60km/h)                                  |
 | Right-of-way at the next Intersection | Right-of-way at the next Intersection  |
 | Speed Limit(30km/h)                                 | Speed Limit(30km/h)                                   |
 | Priority Road                                                  | Priority Road                                                    |
 | Keep Right                                                      | Keep Right                                                        |
 |Turn Left Ahead                                            | Turn Left Ahead                                             |
 |General Caution                                            | General Caution                                            |
-|Road work                                                       | Road work                                                        |
+|Road work                                                       | Road work                                               |
+| Stop                                  | Stop                                  |
+
 
 ![alt text][image7]
 
@@ -211,14 +212,15 @@ The top five soft max probabilities is:
 
 | Probability                                                       |     Prediction                                                    |
 |:---------------------------------------------:|:---------------------------------------------:|
-| 100%                                                                  | Speed Limit(60km/h)                                  |
 | 100%                                                                  | Right-of-way at the next Intersection |
 | 100%                                                                  | Speed Limit(30km/h)                                  |
 | 100%                                                                  | Priority Road                                        |
 | 100%                                                                  | Keep Right                                           |
 |100%                                                                   | Turn Left Ahead                                            |
 |100%                                                                   | General Caution                                            |
-|93%                                                                     | Road work                                            |
+|81%                                                                     | Road work                                       |
+| 86%                                                                  | Stop                              |
+
 
 ![alt text][image8]
 
