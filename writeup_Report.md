@@ -111,7 +111,7 @@ My final model consisted of the following layers:
 | Input                                  | 32x32x1 Grayscale image                                          |
 | Convolution_1 5x5       | 1x1 stride, VALID padding, outputs 28X28X6                |
 | RELU                                  |                                                                                              |
-|Dropout                             |Keep probability = 0.75                         |
+|Dropout                             |Keep probability = 0.7                       |
 | Max pooling                    | 2x2 stride,  outputs 14x14x6                                    |
 | Convolution_2 5x5       | 1x1 stride, VALID padding, outputs 10x10x16   |
 | RELU                                  |                                                                                              |
@@ -138,11 +138,11 @@ To acehive better validation accuracy I worked out on various hyperparameter lik
 #### Following parameter value gives best result for my network:
 
 * Learning Rate = 0.0009
-* Epoch = 75
-* batch Size = 128
+* Epoch = 70
+* batch Size = 100
 * Dropout at FC 0 layer = 0.6
 * Dropout at FC 2 layer = 0.6
-* Dropout at Conv 1 layer = 0.75
+* Dropout at Conv 1 layer = 0.7
 
 #### Learning from various experiments: 
 
@@ -156,9 +156,9 @@ The code for calculating the accuracy of the model is located in the 21th and 23
 
 ### My final model results are:
 
-* training set accuracy of ----: 99.8%
-* validation set accuracy of --: 99.4%
-* test set accuracy of---------: 91.7%
+* training set accuracy of ----: 99.9%
+* validation set accuracy of --: 99.6%
+* test set accuracy of---------: 92.3%
 
 Below graph shows validation accuracy over number of Epoch's.
 
@@ -176,14 +176,14 @@ If an iterative approach was chosen:
    
 #### How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
 
-  * Initial model was overfitting data and not yielding required accuracy for validation data set, so to avoid this we have introduced dropout at first convolution layer, at first Fully connected layer and at last Fully connected layer, keep probability for Fully conected layer was same i.e. 0.6, but for first convolutional layer it was quite high 0.75 to avoid underfitting.
+  * Initial model was overfitting data and not yielding required accuracy for validation data set, so to avoid this we have introduced dropout at first convolution layer, at first Fully connected layer and at last Fully connected layer, keep probability for Fully conected layer was same i.e. 0.6, but for first convolutional layer it was quite high 0.7 to avoid underfitting.
   
 #### Which parameters were tuned? How were they adjusted and why?
 
   * Learning Rate, Batch Size, Epoch, Keep probability for dropout.
    * Learning Rate:- Higher Learning rate train model faster but stagnant earlier than acheving its full potential, whereas for lower learning rate model train slower but it achieves lowest possible loss for that model. in our model learning rate of 0.0009 yields better results.
    * Batch Size:- Since we can not train whole model at once due to computation power limitation, so we split model in batches, calculate all parameter for each batches and cascade it to top level for complete model, ats again on model size we can deside batch size, in our model Batch size is 128.
-   * Keep Probability:- To avoid overfitting in model we have to introduced dropout at different layer, In our model I have added dropout at Conv1 layer, at first fully connected layer, and at last fully connected layer but with different keep probability, like at earlier layer it is higher 0.75 in our case and at later layer it is 0.6.
+   * Keep Probability:- To avoid overfitting in model we have to introduced dropout at different layer, In our model I have added dropout at Conv1 layer, at first fully connected layer, and at last fully connected layer but with different keep probability, like at earlier layer it is higher 0.7 in our case and at later layer it is 0.6.
   
    
 
@@ -204,7 +204,6 @@ Here are the results of the prediction:
 
 | Image                                                |     Prediction                                |
 |:----------------------------------------------------:|:---------------------------------------------:|
-| Speed Limit(60km/h)                                  | Speed Limit(60km/h)                           |
 | Right-of-way at the next Intersection                | Right-of-way at the next Intersection         |
 | Speed Limit(30km/h)                                  | Speed Limit(30km/h)                           |
 | Priority Road                                        | Priority Road                                 |
@@ -212,6 +211,8 @@ Here are the results of the prediction:
 |Turn Left Ahead                                       | Turn Left Ahead                               |
 |General Caution                                       | General Caution                               |
 |Road work                                             | Road work                                     |
+| Stop                                  | Stop                          |
+
 
 ![alt text][image7]
 
@@ -227,14 +228,15 @@ The top five soft max probabilities is:
 
 | Probability                                                           |     Prediction                                       |
 |:---------------------------------------------------------------------:|:----------------------------------------------------:|
-| 100%                                                                  | Speed Limit(60km/h)                                  |
 | 100%                                                                  | Right-of-way at the next Intersection                |
 | 100%                                                                  | Speed Limit(30km/h)                                  |
 | 100%                                                                  | Priority Road                                        |
 | 100%                                                                  | Keep Right                                           |
 |100%                                                                   | Turn Left Ahead                                      |
 |100%                                                                   | General Caution                                      |
-|93%                                                                    | Road work                                            |
+|81%                                                                    | Road work                                          |
+| 86%                                                                  | Stop                               |
+
 
 ![alt text][image8]
 
