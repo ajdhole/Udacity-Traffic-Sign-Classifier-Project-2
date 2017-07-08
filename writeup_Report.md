@@ -249,7 +249,7 @@ Figure showing sofmax probability.
  
  ![alt text][image9]
   
-  -Featuremap of conv1 Layer, the shape of this layer is 28x28x6 and this featuremap is for Speed Limit(60km/h) sign class.
+  -Featuremap of conv1 Layer, the shape of this layer is 28x28x6 and this featuremap is for Stop sign class.
   
   ![alt text][image10]
     
